@@ -1,0 +1,49 @@
+{
+  "name": "wrapped-crypto-punks-api",
+  "version": "1.0.10",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "build": "tsc",
+    "start:docker": "docker-compose up -d",
+    "stop:docker": "docker-compose down",
+    "lint": "npx eslint -c .eslintrc.js src index.js --ext .js",
+    "lint:fix": "npx eslint -c .eslintrc.js src index.js --ext .js --fix",
+    "release:production": "npx standard-version -r patch --message 'chore(release-production): %s [skip ci]' --no-verify"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.363.0",
+    "@types/node-fetch": "^2.6.4",
+    "axios": "^0.27.2",
+    "cors": "^2.8.5",
+    "decimal.js": "^10.4.3",
+    "dotenv": "^16.0.3",
+    "envalid": "^7.3.1",
+    "express": "^4.18.1",
+    "http-status": "^1.4.0",
+    "joi": "^14.3.1",
+    "json5": "^2.2.3",
+    "log4js": "^6.7.0",
+    "multer": "^1.4.5-lts.1",
+    "node-fetch": "^2.6.12",
+    "pg": "^8.8.0",
+    "pgtools": "^0.1.1",
+    "pino": "^8.14.1",
+    "sharp": "^0.31.1",
+    "ts-node": "^10.9.1",
+    "web3": "^1.8.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "mocha": "^6.2.2",
+    "next-standard-version": "^3.0.18",
+    "nodemon": "^2.0.20",
+    "standard-version": "^9.5.0",
+    "typescript": "^5.1.6"
+  }
+}

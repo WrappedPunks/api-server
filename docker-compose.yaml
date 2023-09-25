@@ -1,0 +1,54 @@
+version: '3.1'
+
+networks:
+  wrapped_punks:
+
+volumes:
+  db:
+    driver: local
+
+services:
+  postgres:
+    image: postgres:10.15
+    restart: always
+    ports:
+      - '5445:5432'
+    expose:
+      - 5432
+    environment:
+      POSTGRES_DB: db-name
+      POSTGRES_USER: db-username
+      POSTGRES_PASSWORD: db-password
+    volumes:
+      - db:/var/lib/postgresql/data
+    networks:
+      - wrapped_punks
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: npm start
+    restart: "always"
+    ports:
+      - "8080:8080"
+    expose:
+      - 8080
+    environment:
+      PORT: 8080
+      PG_HOST: postgres
+      PG_PORT: 5432
+      PG_USER: db-username
+      PG_PASS: db-password
+      PG_DB_NAME: db-name
+      PUNK_PARSER_SCHEMA: sgd7
+      BOUNTY_PARSER_SCHEMA: sgd7
+      API_SCHEMA: wrapped_punk
+      ENABLE_LOG_FILE: false
+      ENV: prod
+    volumes:
+      - .:/usr/local/src/build
+      - /usr/local/src/build/node_modules
+    networks:
+      - wrapped_punks
+    depends_on:
+      - postgres
