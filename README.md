@@ -1,4 +1,6 @@
-# wrapped-crypto-punks-api [![CI](https://github.com/WrappedPunks/api-server/actions/workflows/ci.yaml/badge.svg?branch=develop)](https://github.com/WrappedPunks/api-server/actions/workflows/ci.yaml)
+This work is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/legalcode.en)
+
+# WrappedPunks Api [![CI](https://github.com/WrappedPunks/api-server/actions/workflows/ci.yaml/badge.svg?branch=develop)](https://github.com/WrappedPunks/api-server/actions/workflows/ci.yaml)
 
 - [Requirements](#requirements)
 - [Setup](#setup)
